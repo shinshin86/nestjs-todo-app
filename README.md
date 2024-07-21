@@ -14,8 +14,8 @@ This project is a simple Todo application built with NestJS, Prisma ORM, and SQL
 
 ## Prerequisites
 
-- Node.js (v14 or later)
-- npm (v6 or later)
+- Node.js (v18 or later)
+- npm (v10 or later)
 
 ## Setup
 
