@@ -85,6 +85,20 @@ npm run test:cov
 - API endpoints are defined in `src/todo/todo.controller.ts`.
 - Business logic is implemented in `src/todo/todo.service.ts`.
 
+
+## Continuous Integration
+This project uses GitHub Actions for continuous integration. The CI pipeline runs on every push to the `main` branch and on every pull request. It performs the following checks:
+
+- Installs dependencies
+- Builds the project
+- Runs linting
+- Generates Prisma client
+- Runs Prisma migrations
+- Executes unit tests
+- Runs E2E tests
+
+The CI is configured to run on Node.js versions 18.x and 20.x. You can see the details of the CI configuration in the `.github/workflows/ci.yml` file.
+
 ## Code Formatting with Prettier
 
 This project uses Prettier for code formatting. To format your code, run:
