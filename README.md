@@ -1,5 +1,7 @@
 # NestJS Todo App
 
+[![CI](https://github.com/shinshin86/nestjs-todo-app/actions/workflows/ci.yml/badge.svg)](https://github.com/shinshin86/nestjs-todo-app/actions/workflows/ci.yml)
+
 This project is a simple Todo application built with NestJS, Prisma ORM, and SQLite. It demonstrates basic CRUD operations, error handling using the neverthrow library, and includes unit and E2E tests.
 
 ## Features
