@@ -85,7 +85,7 @@ npm run test:cov
 - API endpoints are defined in `src/todo/todo.controller.ts`.
 - Business logic is implemented in `src/todo/todo.service.ts`.
 
-## Linter and Code Formatting
+## Code Formatting with Prettier
 
 This project uses Prettier for code formatting. To format your code, run:
 
