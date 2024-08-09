@@ -1,121 +1,113 @@
-# NestJS Todo App
+# NestJS Todo App with React Frontend
 
-[![CI](https://github.com/shinshin86/nestjs-todo-app/actions/workflows/ci.yml/badge.svg)](https://github.com/shinshin86/nestjs-todo-app/actions/workflows/ci.yml)
+This project is a full-stack Todo application built with NestJS for the backend and React for the frontend. It demonstrates basic CRUD operations, error handling, and includes unit and E2E tests.
 
-This project is a simple Todo application built with NestJS, Prisma ORM, and SQLite. It demonstrates basic CRUD operations, error handling using the neverthrow library, and includes unit and E2E tests.
+## Project Structure
+
+```
+nestjs-todo-app/
+├── backend/     # NestJS backend
+├── frontend/    # React frontend
+└── README.md    # This file
+```
 
 ## Features
 
 - Create, Read, Update, and Delete Todo items
 - SQLite database integration using Prisma ORM
 - Error handling with neverthrow
-- Unit and E2E tests
-- Code formatting with Prettier
+- Unit and E2E tests for backend
+- React-based frontend with TypeScript
+- Proxy setup for local development
 
 ## Prerequisites
 
 - Node.js (v18 or later)
 - npm (v10 or later)
 
-## Setup
+## Getting Started
 
 1. Clone the repository:
 
-```
+```bash
 git clone https://github.com/shinshin86/nestjs-todo-app.git
 cd nestjs-todo-app
 ```
 
-2. Install dependencies:
+2. Install root dependencies:
 
-```
+```bash
 npm install
 ```
 
-3. Set up the database:
+3. Set up the backend:
 
-```
+```bash
+cd backend
+npm install
 npm run db:migrate
+npm run db:seed  # Optional: Seed the database
 ```
 
-4. (Optional) Seed the database:
-
-```
-npm run db:seed
-```
-
-## Running the app
+4. Set up the frontend:
 
 ```bash
-# development
-npm run start
+cd ../frontend
+npm install
+```
 
-# watch mode
-npm run start:dev
-# or
+5. Start both servers from the root directory:
+
+```bash
+cd ..
 npm run dev
-
-# production mode
-npm run start:prod
 ```
 
-## Test
-
-```bash
-# unit tests
-npm run test
-
-# e2e tests
-npm run test:e2e
-
-# test coverage
-npm run test:cov
-```
-
-## API Endpoints
-
-- `GET /todos`: Get all todos
-- `GET /todos/:id`: Get a specific todo
-- `POST /todos`: Create a new todo
-- `PUT /todos/:id`: Update a todo
-- `DELETE /todos/:id`: Delete a todo
+This will start the backend server on http://localhost:3001 and the frontend server on http://localhost:3000.
 
 ## Development
 
-- The main application logic is in the `src/todo` directory.
-- Database schema is defined in `prisma/schema.prisma`.
-- API endpoints are defined in `src/todo/todo.controller.ts`.
-- Business logic is implemented in `src/todo/todo.service.ts`.
+- Backend code is in the `backend/` directory. Refer to `backend/README.md` for more details.
+- Frontend code is in the `frontend/` directory. Refer to `frontend/README.md` for more details.
+- The frontend uses a proxy to communicate with the backend during development. This is configured in `frontend/src/setupProxy.js`.
 
+## Testing
+
+### Backend
+
+```bash
+cd backend
+npm test          # Run unit tests
+npm run test:e2e  # Run E2E tests
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm test
+```
+
+## Building for Production
+
+### Backend
+
+```bash
+cd backend
+npm run build
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm run build
+```
 
 ## Continuous Integration
-This project uses GitHub Actions for continuous integration. The CI pipeline runs on every push to the `main` branch and on every pull request. It performs the following checks:
 
-- Installs dependencies
-- Builds the project
-- Runs linting
-- Generates Prisma client
-- Runs Prisma migrations
-- Executes unit tests
-- Runs E2E tests
-
-The CI is configured to run on Node.js versions 18.x and 20.x. You can see the details of the CI configuration in the `.github/workflows/ci.yml` file.
-
-## Code Formatting with Prettier
-
-This project uses Prettier for code formatting. To format your code, run:
-
-```
-npm run format
-```
-
-## Linting with ESLint
-To automatically fix linting issues where possible:
-
-```
-npm run lint
-```
+This project uses GitHub Actions for CI. The workflow is defined in `.github/workflows/ci.yml`.
 
 ## License
 
-This project is MIT licensed.
+This project is licensed under the MIT License - see the `LICENSE` file for details.

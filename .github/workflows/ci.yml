@@ -1,10 +1,14 @@
-name: CI
+name: Backend CI
 
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'backend/**'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'backend/**'
 
 jobs:
   test:
@@ -13,6 +17,10 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x, 20.x]
+
+    defaults:
+      run:
+        working-directory: backend
 
     steps:
     - uses: actions/checkout@v3
