@@ -16,8 +16,8 @@ export class TodoController {
   constructor(private readonly todoService: TodoService) {}
 
   @Post()
-  async createTodo(@Body('title') title: string) {
-    const result = await this.todoService.createTodo(title);
+  async createTodo(@Body('title') title: string, @Body('description') description: string) {
+    const result = await this.todoService.createTodo(title, description);
     return result.match(
       todo => todo,
       error => {

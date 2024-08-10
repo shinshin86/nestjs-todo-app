@@ -1,14 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TodoList from './components/TodoList';
+import TodoDetail from './components/TodoDetail';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<TodoList />} />
+        <Route path="/todo/:id" element={<TodoDetail />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 };
 

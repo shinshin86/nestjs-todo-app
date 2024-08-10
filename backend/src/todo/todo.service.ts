@@ -6,10 +6,10 @@ import { Result, ok, err } from 'neverthrow';
 export class TodoService {
   constructor(private prisma: PrismaService) {}
 
-  async createTodo(title: string): Promise<Result<any, Error>> {
+  async createTodo(title: string, description: string): Promise<Result<any, Error>> {
     try {
       const todo = await this.prisma.todo.create({
-        data: { title },
+        data: { title, description },
       });
       return ok(todo);
     } catch (error) {

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 interface Todo {
   id: number;
   title: string;
-  description: string;
+  description?: string;
   completed: boolean;
 }
 
@@ -105,7 +106,8 @@ const TodoList: React.FC = () => {
               checked={todo.completed}
               onChange={() => updateTodo(todo.id, !todo.completed)}
             />
-            <span>{todo.title}</span>
+            <Link to={`/todo/${todo.id}`}>{todo.title}</Link>
+            {todo.description && <span> - {todo.description}</span>}
             <button onClick={() => deleteTodo(todo.id)}>Delete</button>
           </li>
         ))}
