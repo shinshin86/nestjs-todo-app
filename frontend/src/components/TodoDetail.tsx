@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import styles from './TodoDetail.module.css';
 
 interface Todo {
   id: number;
@@ -30,15 +31,19 @@ const TodoDetail: React.FC = () => {
   };
 
   if (!todo) {
-    return <div>Loading...</div>;
+    return <div className={styles.container}>Loading...</div>;
   }
 
   return (
-    <div>
-      <h1>{todo.title}</h1>
-      {todo.description && <p>Description: {todo.description}</p>}
-      <p>Status: {todo.completed ? 'Completed' : 'Not Completed'}</p>
-      <Link to="/">Back to List</Link>
+    <div className={styles.container}>
+      <h1 className={styles.title}>{todo.title}</h1>
+      {todo.description && <p className={styles.description}>Description: {todo.description}</p>}
+      <p className={styles.status}>
+        Status: <span className={todo.completed ? styles.completed : styles.notCompleted}>
+          {todo.completed ? 'Completed' : 'Not Completed'}
+        </span>
+      </p>
+      <Link to="/" className={styles.backLink}>Back to List</Link>
     </div>
   );
 };

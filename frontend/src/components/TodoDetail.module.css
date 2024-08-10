@@ -1,0 +1,45 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  color: #0061ff;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.description {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.status {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.completed {
+  color: #52c41a;
+}
+
+.notCompleted {
+  color: #faad14;
+}
+
+.backLink {
+  display: inline-block;
+  background-color: #0061ff;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.backLink:hover {
+  background-color: #0056e0;
+}

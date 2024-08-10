@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './TodoList.module.css';
 
 interface Todo {
   id: number;
@@ -81,34 +82,39 @@ const TodoList: React.FC = () => {
     };
 
   return (
-    <div>
-      <h1>Todo List</h1>
-      <div>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Todo List</h1>
+      <div className={styles.form}>
         <input
           type="text"
           placeholder="Title"
           value={newTodo.title}
           onChange={(e) => setNewTodo({ ...newTodo, title: e.target.value })}
+          className={styles.input}
         />
         <input
           type="text"
           placeholder="Description"
           value={newTodo.description}
           onChange={(e) => setNewTodo({ ...newTodo, description: e.target.value })}
+          className={styles.input}
         />
-        <button onClick={createTodo}>Add Todo</button>
+        <button onClick={createTodo} className={styles.button}>Add Todo</button>
       </div>
-      <ul>
+      <ul className={styles.list}>
         {todos.map((todo) => (
-          <li key={todo.id}>
+          <li key={todo.id} className={styles.listItem}>
             <input
               type="checkbox"
               checked={todo.completed}
               onChange={() => updateTodo(todo.id, !todo.completed)}
+              className={styles.checkbox}
             />
-            <Link to={`/todo/${todo.id}`}>{todo.title}</Link>
-            {todo.description && <span> - {todo.description}</span>}
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+            <div className={styles.todoContent}>
+              <Link to={`/todo/${todo.id}`} className={styles.todoTitle}>{todo.title}</Link>
+              {todo.description && <span className={styles.todoDescription}>{todo.description}</span>}
+            </div>
+            <button onClick={() => deleteTodo(todo.id)} className={styles.deleteButton}>Delete</button>
           </li>
         ))}
       </ul>
