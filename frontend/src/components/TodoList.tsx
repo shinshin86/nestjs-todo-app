@@ -61,7 +61,12 @@ const TodoList: React.FC = () => {
         if (!response.ok) {
           throw new Error('Failed to update todo');
         }
-        fetchTodos();
+        // アニメーションのために即座に状態を更新
+        setTodos(todos.map(todo => 
+          todo.id === id ? { ...todo, completed } : todo
+        ));
+        // サーバーからの最新データを取得
+        setTimeout(fetchTodos, 300);
       } catch (error) {
         console.error('Error updating todo:', error);
       }
@@ -103,7 +108,7 @@ const TodoList: React.FC = () => {
       </div>
       <ul className={styles.list}>
         {todos.map((todo) => (
-          <li key={todo.id} className={styles.listItem}>
+          <li key={todo.id} className={`${styles.listItem} ${todo.completed ? styles.completed : ''}`}>
             <input
               type="checkbox"
               checked={todo.completed}
