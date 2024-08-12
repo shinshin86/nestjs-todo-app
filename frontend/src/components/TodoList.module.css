@@ -62,7 +62,32 @@
 }
 
 .checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
   margin-right: 10px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.checkbox:checked {
+  background-color: #0061ff;
+  border-color: #0061ff;
+}
+
+.checkbox:checked::after {
+  content: '\2713';
+  font-size: 14px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .todoContent {
