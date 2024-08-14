@@ -111,3 +111,49 @@ This project uses GitHub Actions for CI. The workflow is defined in `.github/wor
 ## License
 
 This project is licensed under the MIT License - see the `LICENSE` file for details.
+
+## Development Tools
+
+This project uses the following tools to maintain code quality:
+
+### Backend (NestJS)
+
+- **Lint**: Run ESLint to check code quality.
+  ```
+  cd backend
+  npm run lint
+  ```
+
+- **Format**: Run Prettier to format code.
+  ```
+  cd backend
+  npm run format
+  ```
+
+- **Format Check**: Check if code is formatted correctly.
+  ```
+  cd backend
+  npm run format:check
+  ```
+
+### Frontend (React)
+
+- **Lint**: Run ESLint to check code quality.
+  ```
+  cd frontend
+  npm run lint
+  ```
+
+- **Format**: Run Prettier to format code.
+  ```
+  cd frontend
+  npm run format
+  ```
+
+- **Format Check**: Check if code is formatted correctly.
+  ```
+  cd frontend
+  npm run format:check
+  ```
+
+Running these commands regularly helps maintain consistent code style and catch potential errors early.
